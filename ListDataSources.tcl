@@ -36,9 +36,11 @@ if {[tk windowingsystem]=="aqua"} {
 }
 
 # Get data sources list and list
+pack [ttk::scrollbar .vsb -orient vertical -command {.t yview}] -side right -fill y
 tablelist::tablelist .t -columns {0 "DSN" 0 "Driver"} -stretch all \
     -background white -font {Helvetica -14}
 pack .t -fill both -expand 1 -side top
+
 set sources [::tdbc::odbc::datasources]
 foreach {dsn driver} $sources {
    .t insert end [list $dsn $driver]
