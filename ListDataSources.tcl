@@ -10,14 +10,15 @@ package require tablelist
 package require tdbc::odbc
 
 wm geometry . 500x300+300+300
+ttk::setTheme "classic"
 
-frame .menubar -relief raised -bd 2
+ttk::frame .menubar -relief raised -borderwidth 2
 pack .menubar -side top -fill x
 
-menubutton .menubar.file -text File -menu .menubar.file.menu
+ttk::menubutton .menubar.file -text File -menu .menubar.file.menu
 menu .menubar.file.menu -tearoff 0
 .menubar.file.menu add command -label Quit -command Exit
-menubutton .menubar.help -text Help -menu .menubar.help.menu
+ttk::menubutton .menubar.help -text Help -menu .menubar.help.menu
 menu .menubar.help.menu -tearoff 0
 .menubar.help.menu add command -label About -command HelpAbout
 pack .menubar.file .menubar.help -side left
